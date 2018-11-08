@@ -366,13 +366,13 @@ module.exports = /******/ (function(modules) {
             );
             elm = global.window.defaultView.refs.elmOrId;
           }
-          var nodeType = elm.nodeName.toUpperCase();
-          if (nodeType === 'SVG' || nodeType === 'G') {
-            svg = elm;
-          } else {
+          // var nodeType = elm.nodeName.toUpperCase();
+          // if (nodeType === 'SVG' || nodeType === 'G') {
+          //   svg = elm;
+          // } else {
             svg = createElm('svg');
             elm.appendChild(svg);
-          }
+          // }
           attrs(svg, { width: width, height: height });
           var defs = createElm('defs');
           svg.appendChild(defs);
