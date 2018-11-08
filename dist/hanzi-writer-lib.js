@@ -357,16 +357,16 @@ module.exports = /******/ (function(modules) {
           var svg = void 0;
           var elm = elmOrId;
           if (typeof elmOrId === 'string') {
-            console.log('this refs elm or id: ', global.window.refs.elmOrId);
-            elm = global.window.refs.elmOrId;
+            console.log('this refs elm or id: ', global.window.defaultView.refs.elmOrId);
+            elm = global.window.defaultView.refs.elmOrId;
           }
-          // var nodeType = elm.nodeName.toUpperCase();
-          // if (nodeType === 'SVG' || nodeType === 'G') {
-          //   svg = elm;
-          // } else {
+          var nodeType = elm.nodeName.toUpperCase();
+          if (nodeType === 'SVG' || nodeType === 'G') {
+            svg = elm;
+          } else {
           svg = createElm('svg');
           elm.appendChild(svg);
-          // }
+          }
           attrs(svg, { width: width, height: height });
           var defs = createElm('defs');
           svg.appendChild(defs);
