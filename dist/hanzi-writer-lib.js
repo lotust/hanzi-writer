@@ -360,7 +360,7 @@ module.exports = /******/ (function(modules) {
           var svg = void 0;
           var elm = elmOrId;
           if (typeof elmOrId === 'string') {
-            elm = global.document.refs.elmOrId;
+            elm = global.document.refs.elmOrId.current;
           }
           var nodeType = elm.nodeName.toUpperCase();
           if (nodeType === 'SVG' || nodeType === 'G') {

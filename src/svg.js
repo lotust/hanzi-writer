@@ -47,7 +47,7 @@ Canvas.init = (elmOrId, width = '100%', height = '100%') => {
   let svg;
   let elm = elmOrId;
   if (typeof elmOrId === 'string') {
-    elm = global.document.refs.elmOrId;
+    elm = global.document.refs.elmOrId.current;
   }
   const nodeType = elm.nodeName.toUpperCase();
   if (nodeType === 'SVG' || nodeType === 'G') {
