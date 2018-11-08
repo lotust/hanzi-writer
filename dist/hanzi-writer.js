@@ -289,7 +289,7 @@ Canvas.prototype.createSubCanvas = function () {
   return new Canvas(group, this.defs);
 };
 
-Canvas.init = function (elmOrId) {
+Canvas.init = (elmOrId) => {
   var width = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : '100%';
   var height = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : '100%';
 
