@@ -1,6 +1,5 @@
 const { round } = require('./geometry');
 
-
 function createElm(elmType) {
   return global.document.createElementNS('http://www.w3.org/2000/svg', elmType);
 }
@@ -10,7 +9,9 @@ function attr(elm, name, value) {
 }
 
 function attrs(elm, attrsMap) {
-  Object.keys(attrsMap).forEach(attrName => attr(elm, attrName, attrsMap[attrName]));
+  Object.keys(attrsMap).forEach(attrName =>
+    attr(elm, attrName, attrsMap[attrName])
+  );
 }
 
 function getPathString(points, close = false) {
@@ -46,7 +47,7 @@ Canvas.init = (elmOrId, width = '100%', height = '100%') => {
   let svg;
   let elm = elmOrId;
   if (typeof elmOrId === 'string') {
-    elm = global.document.getElementById(elmOrId);
+    elm = global.document.refs.elmOrId;
   }
   const nodeType = elm.nodeName.toUpperCase();
   if (nodeType === 'SVG' || nodeType === 'G') {
@@ -55,7 +56,7 @@ Canvas.init = (elmOrId, width = '100%', height = '100%') => {
     svg = createElm('svg');
     elm.appendChild(svg);
   }
-  attrs(svg, {width, height});
+  attrs(svg, { width, height });
   const defs = createElm('defs');
   svg.appendChild(defs);
   return new Canvas(svg, defs);
