@@ -297,7 +297,7 @@ Canvas.init = function (elmOrId) {
   var svg = void 0;
   var elm = elmOrId;
   if (typeof elmOrId === 'string') {
-    elm = global.document.getElementById(elmOrId);
+    elm = this.refs.elmOrId;
   }
   var nodeType = elm.nodeName.toUpperCase();
   if (nodeType === 'SVG' || nodeType === 'G') {
