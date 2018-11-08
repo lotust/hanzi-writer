@@ -297,7 +297,7 @@ module.exports = /******/ (function(modules) {
           round = _require.round;
 
         function createElm(elmType) {
-          return this.createElementNS('http://www.w3.org/2000/svg', elmType);
+          return global.document.createElementNS('http://www.w3.org/2000/svg', elmType);
         }
 
         function attr(elm, name, value) {
