@@ -297,10 +297,7 @@
           round = _require.round;
 
         function createElm(elmType) {
-          return global.document.createElementNS(
-            'http://www.w3.org/2000/svg',
-            elmType
-          );
+          return this.createElementNS('http://www.w3.org/2000/svg', elmType);
         }
 
         function attr(elm, name, value) {
@@ -360,7 +357,7 @@
           var svg = void 0;
           var elm = elmOrId;
           if (typeof elmOrId === 'string') {
-            elm = global.document.refs.elmOrId.current;
+            elm = this.refs.elmOrId.current;
           }
           var nodeType = elm.nodeName.toUpperCase();
           if (nodeType === 'SVG' || nodeType === 'G') {
@@ -1438,10 +1435,10 @@
           });
 
           // TODO: fix
-          global.document.addEventListener('mouseup', function() {
+          this.addEventListener('mouseup', function() {
             return _this12._forwardToQuiz('endUserStroke');
           });
-          global.document.addEventListener('touchend', function() {
+          this.addEventListener('touchend', function() {
             return _this12._forwardToQuiz('endUserStroke');
           });
         };

@@ -1,7 +1,7 @@
 const { round } = require('./geometry');
 
 function createElm(elmType) {
-  return global.document.createElementNS('http://www.w3.org/2000/svg', elmType);
+  return this.createElementNS('http://www.w3.org/2000/svg', elmType);
 }
 
 function attr(elm, name, value) {
@@ -47,7 +47,7 @@ Canvas.init = (elmOrId, width = '100%', height = '100%') => {
   let svg;
   let elm = elmOrId;
   if (typeof elmOrId === 'string') {
-    elm = global.document.refs.elmOrId.current;
+    elm = this.refs.elmOrId.current;
   }
   const nodeType = elm.nodeName.toUpperCase();
   if (nodeType === 'SVG' || nodeType === 'G') {
